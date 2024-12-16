@@ -1,0 +1,45 @@
+---
+title: 'Información importante'
+description: 'para sobrevivir a la app'
+---
+
+## 1. Aplicación antigua
+### 1.1 Seteo de la app
+
+#### 1.1.1 En linux:
+
+- clonar y setear entrekids y bookforce_backend respectivamente, cada una en rama master (al menos entrekids, o morirá).
+- clonar repositorio app-validation-qr.
+- para correr la app es necesario tener node js, ngrok y npm instalado en el pc, expo go en el teléfono android. (esta versión no incluye ninguna configuración para ios)
+- para ngrok hay que crear una cuenta e ingresar token de autenticación en pc.
+- abrir una consola, ejecutar:
+```json
+ngrok http 8012
+```
+- copiar link que se genere y pegar en lista de picker de screen "landing":
+<img height="200" src=" ../images/ngrok.jpg" />
+- ejecutar:
+```json
+ - npm install 
+ - npm start 
+```
+- en este punto tienes que abrir expo go en tu celular y escanear el código QR que aparece en pantalla.
+- yyyyyy debería cargar 🙂
+- en caso de cargar, debería pedirte las credenciales de expo, las tiene Josbert o Brayan.
+- si solo te deja meter correo y no te acepta la contraseña, pídele a gpt el comando para limpiar caché de expo e ingresa 
+```json
+npx expo login
+```
+- debería poderse ahora
+- sino bueno, suerte resolviendo 🫡
+- pasando este problema, está todo listo!
+- mentira
+- la versión de esta app está en SDK 50 y tu app de expo debe ir en +52 bella 💅 así que no podrá ejecutarla, pero te muestra una pantalla azul que dice algo como "saber cómo ejecutar esta versión de aplicación" o algo así, te debería mandar a este link:
+[Link](/content/expo.dev/go?sdkVersion=50&platform=android&device=true)
+- descargas la apk del link, desinstalas la versión instalada 
+
+
+
+
+
+
