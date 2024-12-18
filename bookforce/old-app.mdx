@@ -38,7 +38,7 @@ npx expo login
 - pasando este problema, está todo listo!
 - mentira
 - la versión de esta app está en SDK 50 y tu app de expo debe ir en +52 bella 💅 así que no podrá ejecutarla, pero te muestra una pantalla azul que dice algo como "saber cómo ejecutar esta versión de aplicación" o algo así, te debería mandar a este link:
-[Link](/content/expo.dev/go?sdkVersion=50&platform=android&device=true)
+[Link](https://expo.dev/go?sdkVersion=50&platform=android&device=true)
 - descargas la apk del link, desinstalas la app de expo que tienes en tu celular e instalas la apk que descargaste.
 - ahora sí, con esta versión de la app escaneas el QR yyyyy debería cargar 🙂
 - si no carga, no sé, no tengo más información, suerte 🍀.
@@ -110,3 +110,40 @@ Este módulo *debería* contener la cantidad de verificaciones de tickets que se
 El requerimiento acá es poder disponibilizar la aplicación inicialmente en Google Play Store, por lo que se inicia nuevo repositorio
 y proyecto de app en SDK 52 y nivel de API 34 que es lo que a la fecha de la documentación (18/12/2024) es lo que Google exije como standar 
 para disponibilizar apks en la store.
+
+### 2.2 Metodología
+
+Para esto, se utilizó un boilerplate con javascript con el fin de que fuera lo más compatible posible con el código ya realizado
+en el el proyecto anterior. Sin embargo, se reorganiza la estructura del código para separar de mejor manera sus componentes.
+
+Dado que muchas dependencias utilizadas en el proyecto anterior están deprecadas y de plano sin soporte, la forma de trabajo ha
+consistido en tomar una screen o funcionalidad, migrar el código antiguo y reemplazar las dependencias que han dejado de funcionar.
+
+De momento se encuentra funcional el login, y navegación, esto funciona en base a redux, AsyncStorage, expo-route y navigate de react-native,
+quedó pendiente la validación de actividades con QR, hay que modificar el código para que funcione con expo-camera, ya que antes estaba con
+expobarcodescanner.
+
+### 2.3 Seteo de la app
+
+#### En linux
+
+- clonar y setear entrekids y bookforce_backend respectivamente, cada una en rama master (al menos entrekids, o morirá).
+- clonar repositorio new_app_validation
+- para correr la app es necesario tener android studio, node js, ngrok y npm instalado en el pc, expo go en el teléfono android.
+- para ngrok hay que crear una cuenta e ingresar token de autenticación en pc.
+- en tu teléfono, debes desbloquear sí o sí el modo desarrollador y la opción de depuración por USB, además va a aparecer la opción
+para autorizar la conexión entre tu pc y celular, debes aceptarla.
+- verifica la conexión en la sección "Device Manager" de Android studio, si no lo reconoce automáticamente, selecciona el signo "+" y debería tomarlo, sino,
+pregunta a GPT cómo hacer para conectarlo. [Este link te podría servir](https://docs.expo.dev/workflow/android-studio-emulator/)
+- crea un archivo .env en la carpeta principal del proyecto con el siguiente contenido:
+```
+BACKEND_PORT=8012
+API_BASE_BACKEND_URL=[URL DE NGROK QUE TIENES QUE GENERAR DE LA MISMA MANERA QUE TE ENSEÑE ARRIBA]
+```
+- en el proyecto de la app, ejecutar
+```
+npm install
+npm run start:local 
+```
+
+y listo 😊
