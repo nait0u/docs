@@ -17,7 +17,7 @@ description: 'para sobrevivir a la app'
 ngrok http 8012
 ```
 - copiar link que se genere y pegar en lista de picker de screen "landing":
-<img height="200" src=" ../images/ngrok.jpg" />
+<img height="301" src=" ../images/ngrok.jpg"  alt="ngrok"/>
 - ejecutar:
 ```json
  - npm install 
@@ -26,17 +26,56 @@ ngrok http 8012
 - en este punto tienes que abrir expo go en tu celular y escanear el código QR que aparece en pantalla.
 - yyyyyy debería cargar 🙂
 - en caso de cargar, debería pedirte las credenciales de expo, las tiene Josbert o Brayan.
+
+##### 1.1.1.1 Error de login en expo go:
 - si solo te deja meter correo y no te acepta la contraseña, pídele a gpt el comando para limpiar caché de expo e ingresa 
 ```json
 npx expo login
 ```
 - debería poderse ahora
 - sino bueno, suerte resolviendo 🫡
+##### 1.1.1.2 Versión de la app:
 - pasando este problema, está todo listo!
 - mentira
 - la versión de esta app está en SDK 50 y tu app de expo debe ir en +52 bella 💅 así que no podrá ejecutarla, pero te muestra una pantalla azul que dice algo como "saber cómo ejecutar esta versión de aplicación" o algo así, te debería mandar a este link:
 [Link](/content/expo.dev/go?sdkVersion=50&platform=android&device=true)
-- descargas la apk del link, desinstalas la versión instalada 
+- descargas la apk del link, desinstalas la app de expo que tienes en tu celular e instalas la apk que descargaste.
+- ahora sí, con esta versión de la app escaneas el QR yyyyy debería cargar 🙂
+- si no carga, no sé, no tengo más información, suerte 🍀.
+
+#### 1.1.2 En windows:
+- clonar y setear entrekids y bookforce_backend respectivamente en WSL, cada una en rama master (al menos entrekids, o morirá).
+- clonar repositorio app-validation-qr EN WINDOWS.
+- para correr la app es necesario tener node js y npm instalado en WINDOWS y ngrok en WSL, expo go en el teléfono android. (esta versión no incluye ninguna configuración para ios).
+- para ngrok hay que crear una cuenta e ingresar token de autenticación en WSL.
+- abrir una consola de WSL, ejecutar:
+```json
+ngrok http 8012
+```
+- copiar link que se genere y pegar en lista de picker de screen "landing":
+<img height="301" src=" ../images/ngrok.jpg"  alt="ngrok"/>
+- en WINDOWS abrir una consola de cmd, ejecutar:
+```json
+ ipconfig
+```
+- copiar la dirección IPv4 de la red que estás usando y pegar en el archivo url de la carpeta reducers dentro de redux
+
+estos numeritos
+<img height="260" src=" ../images/ipconfig.jpg"  alt="ipconfig"/>
+
+en este archivo
+<img height="216" src=" ../images/reducers.jpg"  alt="reducers"/>
+
+los reemplazas acá
+<img height="128" src=" ../images/url.jpg"  alt="url"/>
+
+o no va a funcionar
+- luego de todo, ejecutar:
+```json
+ - npm install
+ - npm start
+```
+-y seguir mismo flujo de instalación y ejecución que en linux.
 
 
 
